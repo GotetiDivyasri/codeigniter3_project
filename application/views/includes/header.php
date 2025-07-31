@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
 
     <!-- Custom CSS -->
-    <link href="/assets/style.css" rel="stylesheet">
+    <link href="<?= base_url() ?>/assets/style.css" rel="stylesheet">
 </head>
 
 <body>
