@@ -1,4 +1,8 @@
 <?php
+// error_reporting(E_ALL);
+// ini_set('display_errors', 1);
+// print_r($name);
+// die;
 $this->load->view('includes/header');
 ?>
 <!-- Hero Section -->
@@ -19,7 +23,6 @@ $this->load->view('includes/header');
         </div>
     </div>
 </section>
-
 <!-- Features Section -->
 <section id="features" class="features-section">
     <div class="container">
@@ -231,19 +234,22 @@ $this->load->view('includes/header');
         </div>
         <div class="row justify-content-center">
             <div class="col-lg-8">
-                <form class="contact-form">
+                <form class="contact-form" action="<?php echo base_url('/contactus') ?>" method="POST" enctype="multipart/form-data">
                     <div class="row g-3">
                         <div class="col-md-6">
-                            <input type="text" class="form-control" placeholder="Your Name" required>
+                            <input type="text" id="name" name="name" class="form-control" placeholder="Your Name" required>
+                            <small><?= form_error('name'); ?></small>
                         </div>
                         <div class="col-md-6">
-                            <input type="email" class="form-control" placeholder="Your Email" required>
+                            <input type="email" id="email" name="email" class="form-control" placeholder="Your Email" required>
+                            <small><?= form_error('email'); ?></small>
                         </div>
                         <div class="col-12">
-                            <input type="text" class="form-control" placeholder="Subject" required>
+                            <input type="text" id="subject" name="subject" class="form-control" placeholder="Subject" required>
+                            <small><?= form_error('subject'); ?></small>
                         </div>
                         <div class="col-12">
-                            <select class="form-select">
+                            <select class="form-select" name="service_id">
                                 <option selected>Select Service</option>
                                 <option>Cloud Solutions</option>
                                 <option>Mobile Development</option>
@@ -254,10 +260,11 @@ $this->load->view('includes/header');
                             </select>
                         </div>
                         <div class="col-12">
-                            <textarea class="form-control" rows="5" placeholder="Your Message" required></textarea>
+                            <textarea class="form-control" id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+                            <small><?= form_error('message'); ?></small>
                         </div>
                         <div class="col-12 text-center">
-                            <button type="submit" class="btn btn-primary btn-lg px-5">Send Message</button>
+                            <button type="submit" name="submit" class="btn btn-primary btn-lg px-5">Send Message</button>
                         </div>
                     </div>
                 </form>
@@ -275,7 +282,7 @@ $this->load->view('includes/footer');
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 <!-- Custom JavaScript -->
-<script>
+<!-- <script>
     // Smooth scrolling for navigation links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
@@ -348,7 +355,7 @@ $this->load->view('includes/footer');
         card.style.transition = 'all 0.6s ease';
         observer.observe(card);
     });
-</script>
+</script> -->
 </body>
 
 </html>
