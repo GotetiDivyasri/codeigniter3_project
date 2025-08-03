@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 31, 2025 at 01:57 PM
+-- Generation Time: Aug 02, 2025 at 01:02 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -33,6 +33,48 @@ CREATE TABLE `about_us` (
   `image` varchar(100) DEFAULT NULL,
   `description` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admins`
+--
+
+CREATE TABLE `admins` (
+  `id` int(11) NOT NULL,
+  `username` varchar(100) DEFAULT NULL,
+  `email` varchar(100) DEFAULT NULL,
+  `password` varchar(100) DEFAULT NULL,
+  `status` enum('0','1') NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `admins`
+--
+
+INSERT INTO `admins` (`id`, `username`, `email`, `password`, `status`) VALUES
+(1, 'divya', 'admin@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '1');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admin_login_logs`
+--
+
+CREATE TABLE `admin_login_logs` (
+  `id` int(11) NOT NULL,
+  `address` varchar(100) DEFAULT NULL,
+  `admin_id` varchar(100) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `admin_login_logs`
+--
+
+INSERT INTO `admin_login_logs` (`id`, `address`, `admin_id`, `created_at`) VALUES
+(1, '127.0.0.1', '1', '0000-00-00 00:00:00'),
+(2, '127.0.0.1', '1', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -149,6 +191,18 @@ ALTER TABLE `about_us`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `admins`
+--
+ALTER TABLE `admins`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `admin_login_logs`
+--
+ALTER TABLE `admin_login_logs`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `contact_us`
 --
 ALTER TABLE `contact_us`
@@ -201,6 +255,18 @@ ALTER TABLE `why_choose_us`
 --
 ALTER TABLE `about_us`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `admins`
+--
+ALTER TABLE `admins`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `admin_login_logs`
+--
+ALTER TABLE `admin_login_logs`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `contact_us`

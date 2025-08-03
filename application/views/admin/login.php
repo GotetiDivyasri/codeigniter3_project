@@ -23,36 +23,57 @@
                                 <div class="card-header">
                                     <h3 class="text-center font-weight-light my-4">Login</h3>
                                 </div>
+                                <div class="text-danger">
+                                    <?php echo validation_errors(); ?>
+                                    <?php
+                                    if ($this->session->flashdata('type') == 'not_exists') {
+                                        echo "<br /><br /><h4 align='center' style='color:#FF0000;'>Invalid Email</h4>";
+                                    }
+                                    if ($this->session->flashdata('type') == 'log') {
+                                        echo "<br /><br /><h4 align='center' style='color:#FF0000;'>Invalid Login Details</h4>";
+                                    }
+                                    if ($this->session->flashdata('type') == 'timeout') {
+                                        echo "<br /><br /><h4 align='center' style='color:#FF0000;'>Session Time Out.To Login Again Type your user name and password to Login</h4>";
+                                    }
+                                    if ($this->session->flashdata('type') == 'lout') {
+                                        echo "<br /><br /><h4 align='center' style='color:#FF0000;'>You Have Successfully Logged Out.</h4>";
+                                    }
+                                    if ($this->session->flashdata('type') == 'location') {
+                                        echo "<br /><br /><h4 align='center' style='color:#FF0000;'>You Are Not authorized To Login From This Computer.</h4>";
+                                    }
+                                    ?>
+                                </div>
                                 <div class="card-body">
-                                    <form>
+                                    <form action="<?= base_url('admin/login') ?>" method="POST">
                                         <div class="form-floating mb-3">
-                                            <input class="form-control" id="inputEmail" type="email" placeholder="name@example.com" />
+                                            <input class="form-control" id="inputEmail" name="email" type="email" placeholder="name@example.com" required />
                                             <label for="inputEmail">Email address</label>
                                         </div>
                                         <div class="form-floating mb-3">
-                                            <input class="form-control" id="inputPassword" type="password" placeholder="Password" />
+                                            <input class="form-control" id="inputPassword" name="password" type="password" placeholder="Password" required />
                                             <label for="inputPassword">Password</label>
                                         </div>
-                                        <div class="form-check mb-3">
+                                        <!-- <div class="form-check mb-3">
                                             <input class="form-check-input" id="inputRememberPassword" type="checkbox" value="" />
                                             <label class="form-check-label" for="inputRememberPassword">Remember Password</label>
-                                        </div>
+                                        </div> -->
                                         <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
-                                            <a class="small" href="password.html">Forgot Password?</a>
-                                            <a class="btn btn-primary" href="index.html">Login</a>
+                                            <!-- <a class="small" href="password.html">Forgot Password?</a> -->
+                                            <!-- <a class="btn btn-primary" href="index.html">Login</a> -->
+                                            <button class="btn btn-primary" type="submit">Login</button>
                                         </div>
                                     </form>
                                 </div>
-                                <div class="card-footer text-center py-3">
+                                <!-- <div class="card-footer text-center py-3">
                                     <div class="small"><a href="register.html">Need an account? Sign up!</a></div>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>
                 </div>
             </main>
         </div>
-        <div id="layoutAuthentication_footer">
+        <!-- <div id="layoutAuthentication_footer">
             <footer class="py-4 bg-light mt-auto">
                 <div class="container-fluid px-4">
                     <div class="d-flex align-items-center justify-content-between small">
@@ -65,7 +86,7 @@
                     </div>
                 </div>
             </footer>
-        </div>
+        </div> -->
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
     <script src="<?= base_url() ?>assets/admin_assets/js/scripts.js"></script>
