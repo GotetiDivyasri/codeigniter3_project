@@ -55,5 +55,6 @@ $route['translate_uri_dashes'] = FALSE;
 // $route['home'] = 'home';
 $route['contactus'] = 'home/contactus';
 $route['dashboard'] = 'admin/dashboard';
+$route['site_settings'] = 'admin/site_settings';
 $route['logout'] = 'admin/logout';
 //$route['about/(:any)'] = 'welcome/about/$1';
