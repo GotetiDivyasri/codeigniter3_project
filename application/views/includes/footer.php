@@ -3,45 +3,44 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-4 mb-4">
-                <h3 class="mb-3">TechFlow</h3>
-                <p class="text-muted">Transforming businesses through innovative technology solutions.</p>
+                <h3 class="mb-3"><?= $site_settings->site_title ?></h3>
+                <p><?= $site_settings->footer_description ?></p>
                 <div class="social-icons">
-                    <a href="#"><i class="bi bi-facebook"></i></a>
-                    <a href="#"><i class="bi bi-twitter"></i></a>
-                    <a href="#"><i class="bi bi-linkedin"></i></a>
-                    <a href="#"><i class="bi bi-instagram"></i></a>
+                    <?php foreach ($social_media as $media) { ?>
+                        <a href="<?= $media->link ?>" target="_blank"><i class="<?= $media->icon ?>"></i></a>
+                    <?php } ?>
                 </div>
             </div>
             <div class="col-lg-2 col-md-6 mb-4">
                 <h5 class="mb-3">Quick Links</h5>
                 <div class="footer-links">
-                    <a href="#" class="d-block mb-2">Home</a>
-                    <a href="#" class="d-block mb-2">About</a>
-                    <a href="#" class="d-block mb-2">Services</a>
-                    <a href="#" class="d-block mb-2">Contact</a>
+                    <a href="#home" class="d-block mb-2">Home</a>
+                    <a href="#about" class="d-block mb-2">About</a>
+                    <a href="#services" class="d-block mb-2">Services</a>
+                    <a href="#contact" class="d-block mb-2">Contact</a>
                 </div>
             </div>
             <div class="col-lg-2 col-md-6 mb-4">
                 <h5 class="mb-3">Services</h5>
                 <div class="footer-links">
-                    <a href="#" class="d-block mb-2">Cloud Solutions</a>
-                    <a href="#" class="d-block mb-2">Mobile Dev</a>
-                    <a href="#" class="d-block mb-2">DevOps</a>
-                    <a href="#" class="d-block mb-2">Security</a>
+                    <?php foreach ($services as $service) { ?>
+                        <a href="#services" class="d-block mb-2"><?= $service->name ?></a>
+                    <?php } ?>
                 </div>
             </div>
             <div class="col-lg-4 mb-4">
-                <h5 class="mb-3">Newsletter</h5>
-                <p class="text-muted mb-3">Subscribe to get the latest updates and offers.</p>
+                <h5 class="mb-3">Email</h5>
+                <p class="mb-3"><?= $site_settings->site_email ?></p>
                 <div class="input-group">
-                    <input type="email" class="form-control" placeholder="Your Email">
-                    <button class="btn btn-primary" type="button">Subscribe</button>
+                    <img src="<?= base_url('uploads/') . $site_settings->logo ?>" width="200px" height="100px">
+                    <!-- <input type="email" class="form-control" placeholder="Your Email"> -->
+                    <!-- <button class="btn btn-primary" type="button">Subscribe</button> -->
                 </div>
             </div>
         </div>
         <hr class="my-4 border-secondary">
         <div class="text-center">
-            <p class="mb-0">&copy; 2024 TechFlow. All rights reserved.</p>
+            <p class="mb-0">&copy; 2025 TechFlow. All rights reserved.</p>
         </div>
     </div>
 </footer>

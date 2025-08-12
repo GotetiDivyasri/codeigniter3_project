@@ -24,7 +24,7 @@ class Login_model extends CI_Model
             $insert_data = array(
                 "address" => $ip,
                 "admin_id" => $data->id,
-                "created_at" => time()
+                "created_at" => date('Y-m-d h:i s')
             );
             $this->db->insert("admin_login_logs", $insert_data);
             return true;

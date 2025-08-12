@@ -6,39 +6,39 @@
                     <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                     Dashboard
                 </a>
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="<?= base_url('site_settings') ?>">
                     <div class="sb-nav-link-icon"><i class="fas fa-cog"></i></div>
                     Site settings
                 </a>
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="<?= base_url('sliders') ?>">
                     <div class="sb-nav-link-icon"><i class="fas fa-sliders-h"></i></div>
                     Sliders
                 </a>
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="<?= base_url('why_choose_us') ?>">
                     <div class="sb-nav-link-icon"><i class="fas fa-star"></i></div>
                     Why Choose Us
                 </a>
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="<?= base_url('about_us') ?>">
                     <div class="sb-nav-link-icon"><i class="fas fa-info-circle"></i></div>
                     About Us
                 </a>
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="<?= base_url('services') ?>">
                     <div class="sb-nav-link-icon"><i class="fas fa-concierge-bell"></i></div>
                     Our Services
                 </a>
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="<?= base_url('our_clients') ?>">
                     <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
                     Our Clients
                 </a>
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="<?= base_url('contact_us') ?>">
                     <div class="sb-nav-link-icon"><i class="fas fa-address-book"></i></div>
                     Contacts
                 </a>
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="<?= base_url('social_media') ?>">
                     <div class="sb-nav-link-icon"><i class="fas fa-share-alt"></i></div>
                     Social Media Links
                 </a>
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="<?= base_url('admin_login_logs') ?>">
                     <div class="sb-nav-link-icon"><i class="fas fa-file-alt"></i></div>
                     Admins Login Logs
                 </a>

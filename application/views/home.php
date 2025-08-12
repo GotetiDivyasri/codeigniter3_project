@@ -10,15 +10,15 @@ $this->load->view('includes/header');
     <div class="container">
         <div class="row align-items-center min-vh-100">
             <div class="col-lg-6 hero-content">
-                <h1 class="hero-title">Transform Your Business with Innovation</h1>
-                <p class="hero-subtitle">Empower your team with cutting-edge technology solutions that drive growth and efficiency.</p>
+                <h1 class="hero-title"><?= $slider->title ?></h1>
+                <p class="hero-subtitle"><?= $slider->description ?></p>
                 <div class="d-flex gap-3 flex-wrap">
                     <button class="btn btn-primary-custom">Get Started</button>
                     <button class="btn btn-outline-custom">Learn More</button>
                 </div>
             </div>
             <div class="col-lg-6">
-                <img src="https://picsum.photos/seed/hero/600/400" alt="Hero Image" class="img-fluid hero-image rounded-3 shadow">
+                <img src="<?= base_url('uploads/') . $slider->image ?>" alt="Hero Image" class="img-fluid hero-image rounded-3 shadow">
             </div>
         </div>
     </div>
@@ -27,37 +27,21 @@ $this->load->view('includes/header');
 <section id="features" class="features-section">
     <div class="container">
         <div class="text-center mb-5">
-            <h2 class="display-5 fw-bold">Why Choose TechFlow?</h2>
-            <p class="lead text-muted">Discover the features that set us apart</p>
+            <h2 class="display-5 fw-bold"><?= $site_settings->why_choose_title ?></h2>
+            <p class="lead text-muted"><?= $site_settings->why_choose_desc ?></p>
         </div>
         <div class="row g-4">
-            <div class="col-md-4">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="bi bi-lightning-charge"></i>
+            <?php foreach ($why_choose_us as $why_choose) { ?>
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="<?= $why_choose->icon ?>"></i>
+                        </div>
+                        <h4><?= $why_choose->title ?></h4>
+                        <p class="text-muted"><?= $why_choose->description ?></p>
                     </div>
-                    <h4>Lightning Fast</h4>
-                    <p class="text-muted">Experience blazing fast performance with our optimized solutions.</p>
                 </div>
-            </div>
-            <div class="col-md-4">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="bi bi-shield-check"></i>
-                    </div>
-                    <h4>Secure & Reliable</h4>
-                    <p class="text-muted">Enterprise-grade security with 99.9% uptime guarantee.</p>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="bi bi-graph-up"></i>
-                    </div>
-                    <h4>Scalable Growth</h4>
-                    <p class="text-muted">Grow your business with solutions that scale with you.</p>
-                </div>
-            </div>
+            <?php } ?>
         </div>
     </div>
 </section>
@@ -67,11 +51,12 @@ $this->load->view('includes/header');
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-6">
-                <img src="https://picsum.photos/seed/about/500/400" alt="About Us" class="img-fluid about-image">
+                <img src="<?= base_url('uploads/') . $about_us->image ?>" alt="About Us" class="img-fluid about-image">
             </div>
             <div class="col-lg-6">
-                <h2 class="display-5 fw-bold mb-4">About TechFlow</h2>
-                <p class="lead mb-4">We're passionate about helping businesses transform through technology.</p>
+                <h2 class="display-5 fw-bold mb-4"><?= $about_us->title ?></h2>
+                <p><?= $about_us->description ?></p>
+                <!-- <p class="lead mb-4">We're passionate about helping businesses transform through technology.</p>
                 <p class="text-muted mb-4">With over a decade of experience, we've helped hundreds of companies streamline their operations, increase efficiency, and achieve their digital transformation goals.</p>
                 <div class="row g-3 mb-4">
                     <div class="col-6">
@@ -98,7 +83,7 @@ $this->load->view('includes/header');
                             <span>Proven Results</span>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <button class="btn btn-primary">Learn More About Us</button>
             </div>
         </div>
@@ -109,64 +94,21 @@ $this->load->view('includes/header');
 <section id="services" class="services-section">
     <div class="container">
         <div class="text-center mb-5">
-            <h2 class="display-5 fw-bold">Our Services</h2>
-            <p class="lead text-muted">Comprehensive solutions for your business needs</p>
+            <h2 class="display-5 fw-bold"><?= $site_settings->our_service_title ?></h2>
+            <p class="lead text-muted"><?= $site_settings->our_service_desc ?></p>
         </div>
         <div class="row g-4">
-            <div class="col-md-6 col-lg-4">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="bi bi-cloud-arrow-up"></i>
+            <?php foreach ($services as $service) { ?>
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="<?= $service->icon ?>"></i>
+                        </div>
+                        <h4><?= $service->name ?></h4>
+                        <p class="text-muted"><?= $service->description ?></p>
                     </div>
-                    <h4>Cloud Solutions</h4>
-                    <p class="text-muted">Migrate to the cloud with our expert guidance and support.</p>
                 </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="bi bi-phone"></i>
-                    </div>
-                    <h4>Mobile Development</h4>
-                    <p class="text-muted">Create powerful mobile apps for iOS and Android platforms.</p>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="bi bi-gear"></i>
-                    </div>
-                    <h4>DevOps</h4>
-                    <p class="text-muted">Streamline your development and deployment processes.</p>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="bi bi-shield-lock"></i>
-                    </div>
-                    <h4>Cybersecurity</h4>
-                    <p class="text-muted">Protect your business with advanced security solutions.</p>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="bi bi-graph-up-arrow"></i>
-                    </div>
-                    <h4>Data Analytics</h4>
-                    <p class="text-muted">Turn your data into actionable insights.</p>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="bi bi-robot"></i>
-                    </div>
-                    <h4>AI & Machine Learning</h4>
-                    <p class="text-muted">Harness the power of artificial intelligence.</p>
-                </div>
-            </div>
+            <?php } ?>
         </div>
     </div>
 </section>
@@ -175,52 +117,24 @@ $this->load->view('includes/header');
 <section id="testimonials" class="testimonials-section">
     <div class="container">
         <div class="text-center mb-5">
-            <h2 class="display-5 fw-bold">What Our Clients Say</h2>
-            <p class="lead">Don't just take our word for it</p>
+            <h2 class="display-5 fw-bold"><?= $site_settings->our_client_title ?></h2>
+            <p class="lead"><?= $site_settings->our_client_desc ?></p>
         </div>
         <div class="row g-4">
-            <div class="col-md-4">
-                <div class="testimonial-card">
-                    <img src="https://picsum.photos/seed/person1/60/60" alt="Client" class="testimonial-avatar">
-                    <h5>Sarah Johnson</h5>
-                    <p class="mb-3">"TechFlow transformed our business operations completely. Their expertise is unmatched!"</p>
-                    <div class="text-warning">
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
+            <?php foreach ($our_clients as $clients) { ?>
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <img src="<?= base_url('uploads/') . $clients->image ?>" alt="Client" class="testimonial-avatar">
+                        <h5><?= $clients->title ?></h5>
+                        <p class="mb-3"><?= $clients->description ?></p>
+                        <div class="text-warning">
+                            <?php for ($i = 1; $i <= $clients->rating; $i++) { ?>
+                                <i class="bi bi-star-fill"></i>
+                            <?php } ?>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-4">
-                <div class="testimonial-card">
-                    <img src="https://picsum.photos/seed/person2/60/60" alt="Client" class="testimonial-avatar">
-                    <h5>Michael Chen</h5>
-                    <p class="mb-3">"The team at TechFlow delivered beyond our expectations. Highly recommended!"</p>
-                    <div class="text-warning">
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="testimonial-card">
-                    <img src="https://picsum.photos/seed/person3/60/60" alt="Client" class="testimonial-avatar">
-                    <h5>Emily Rodriguez</h5>
-                    <p class="mb-3">"Outstanding service and support. TechFlow is a true partner in growth."</p>
-                    <div class="text-warning">
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                    </div>
-                </div>
-            </div>
+            <?php } ?>
         </div>
     </div>
 </section>
@@ -229,12 +143,20 @@ $this->load->view('includes/header');
 <section id="contact" class="contact-section">
     <div class="container">
         <div class="text-center mb-5">
-            <h2 class="display-5 fw-bold">Get In Touch</h2>
-            <p class="lead text-muted">Ready to transform your business? Let's talk.</p>
+            <h2 class="display-5 fw-bold"><?= $site_settings->contact_title ?></h2>
+            <p class="lead text-muted"><?= $site_settings->contact_desc ?></p>
         </div>
         <div class="row justify-content-center">
             <div class="col-lg-8">
-                <form class="contact-form" action="<?php echo base_url('/contactus') ?>" method="POST" enctype="multipart/form-data">
+                <div class="text-success">
+                    <?php echo validation_errors(); ?>
+                    <?php
+                    if ($this->session->flashdata('type')) {
+                        echo "<br /><br /><h4 align='center' class= " . $this->session->flashdata('type') . " >" . $this->session->flashdata('msg') . "</h4>";
+                    }
+                    ?>
+                </div>
+                <form class="contact-form" action="<?= base_url('/contactus') ?>" method="POST" enctype="multipart/form-data">
                     <div class="row g-3">
                         <div class="col-md-6">
                             <input type="text" id="name" name="name" class="form-control" placeholder="Your Name" required>
@@ -251,12 +173,9 @@ $this->load->view('includes/header');
                         <div class="col-12">
                             <select class="form-select" name="service_id">
                                 <option selected>Select Service</option>
-                                <option>Cloud Solutions</option>
-                                <option>Mobile Development</option>
-                                <option>DevOps</option>
-                                <option>Cybersecurity</option>
-                                <option>Data Analytics</option>
-                                <option>AI & Machine Learning</option>
+                                <?php foreach ($services as $service) { ?>
+                                    <option value="<?= $service->id ?>"><?= $service->name ?></option>
+                                <?php } ?>
                             </select>
                         </div>
                         <div class="col-12">
